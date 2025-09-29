@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "Boots Fit",
+    "slug": "boots-fit",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bootsdsinno.bootsfit"
+    },
+    "android": {
+      "package": "com.bootsdsinno.bootsfit",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.health.READ_STEPS",
+        "android.permission.health.WRITE_STEPS",
+        "android.permission.health.READ_HEART_RATE",
+        "android.permission.health.READ_SLEEP",
+        "android.permission.health.READ_WEIGHT"
+      ],
+      "plugins": [
+        [
+          "expo-build-properties",
+          {
+            "android": {
+              "minSdkVersion": 26,
+              "compileSdkVersion": 34,
+              "targetSdkVersion": 34
+            }
+          }
+        ],
+        "react-native-health-connect"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a440fe6f-48e8-46cc-8245-ae4f8a8b19c9"
+      }
+    }
+  }
+}
