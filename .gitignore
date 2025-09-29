@@ -3,6 +3,9 @@
 # dependencies
 node_modules/
 
+# TEMP
+assets/
+
 # Expo
 .expo/
 dist/
