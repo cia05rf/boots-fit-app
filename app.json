@@ -31,6 +31,11 @@
         "android.permission.health.READ_SLEEP",
         "android.permission.health.READ_WEIGHT"
       ],
+      "intentQueries": [
+        {
+          "action": "androidx.health.connect.client.HealthConnectClient.ACTION_HEALTH_CONNECT_SETTINGS"
+        }
+      ],
       "plugins": [
         [
           "expo-build-properties",
