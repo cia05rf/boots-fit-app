@@ -49,13 +49,13 @@ if [ ! -f "android/gradle.properties" ]; then
 fi
 
 # Step 3: Add missing minSdkVersion and other required properties
-print_status "Step 2: Adding required SDK properties to gradle.properties"
+print_status "Step 2: Adding required SDK properties to gradle.properties and build.gradle"
 
-# Check if the properties already exist
+# Check if the properties already exist in gradle.properties
 if grep -q "minSdkVersion=26" android/gradle.properties; then
     print_warning "minSdkVersion=26 already exists in gradle.properties"
 else
-    # Add the required properties
+    # Add the required properties to gradle.properties
     cat >> android/gradle.properties << 'EOF'
 
 # Android SDK versions - manually set for health connect compatibility
@@ -66,6 +66,24 @@ buildToolsVersion=35.0.0
 ndkVersion=27.1.12297006
 EOF
     print_success "Added minSdkVersion and other SDK properties to gradle.properties"
+fi
+
+# Also add to root build.gradle to ensure they're available as ext properties
+if ! grep -q "ext {" android/build.gradle; then
+    cat >> android/build.gradle << 'EOF'
+
+// Define SDK versions for health connect compatibility
+ext {
+    minSdkVersion = 26
+    compileSdkVersion = 35
+    targetSdkVersion = 35
+    buildToolsVersion = "35.0.0"
+    ndkVersion = "27.1.12297006"
+}
+EOF
+    print_success "Added ext properties to root build.gradle"
+else
+    print_warning "ext properties already exist in root build.gradle"
 fi
 
 # Step 4: Verify the properties were added
