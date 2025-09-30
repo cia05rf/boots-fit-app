@@ -43,8 +43,8 @@
           {
             "android": {
               "minSdkVersion": 26,
-              "compileSdkVersion": 34,
-              "targetSdkVersion": 34
+              "compileSdkVersion": 35,
+              "targetSdkVersion": 35
             }
           }
         ],
@@ -58,6 +58,9 @@
       "eas": {
         "projectId": "a440fe6f-48e8-46cc-8245-ae4f8a8b19c9"
       }
-    }
+    },
+    "plugins": [
+      "expo-build-properties"
+    ]
   }
 }
